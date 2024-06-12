@@ -7,17 +7,18 @@
     <link rel="stylesheet" href="/public/styles.css">
 </head>
 <body>
-    <h1> Item Inventory</h1>
-    <div class="items">
-        <p>Id</p>
-        <p>Item Name</p>
-        <p>Price</p>
-        <p>Quatity</p>
-    </div>
-    <div>
-    <button>add</button>
-    <button>update</button>
-    <button>delete</button>
-    </div>
+    <h1> Items Inventory</h1>
+    <form action="/api/item" method="post">
+        <h2>Add Item</h2>
+        <input id="iname", type="text", name="items", placeholder="Item name"/>
+        <input type="submit", value="submit">
+    </form>
+    <form action="/api/item/inventory" method="post">
+        <h2> Add Inventory</h2>
+        <input id="iid", type="text", name="items_id", placeholder="Id"/>
+        <input id="pri", type="text", name="price", placeholder="Price"/>
+        <input id="qua", type="text", name="quantity", placeholder="Quantity"/>
+        <input type="submit", value="submit"/>
+    </form>
 </body>
 </html>
