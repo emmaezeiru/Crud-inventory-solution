@@ -36,8 +36,8 @@ app.post("/api/item", async(req, res)=>{
     const itemObj = new Item({
         item: req.body.item
     })
-    const user = await itemObj.save()
-    res.json(user)
+    const item = await itemObj.save()
+    res.json(item)
 })
 
 //app.post("api/item/:inventory", async(req, res) => {
