@@ -10,7 +10,9 @@ mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopol
 const {Schema} = mongoose;
 
 const ItemSchema = new Schema({
-    item: String,
+    item: {
+        type: String
+    }
 });
 const Item = mongoose.model("Item", ItemSchema);
 
@@ -31,25 +33,28 @@ app.get("/", (req, res) => {
 });
 
 app.post("/api/item", async(req, res)=>{
-    console.log(req.body)
-    const itemObj = new Item;
+    const itemObj = new Item({
+        item: req.body.item
+    })
+    const user = await itemObj.save()
+    res.json(user)
 })
 
-app.post("api/item/:inventory", async(req, res) => {
-    res.json()
-})
+//app.post("api/item/:inventory", async(req, res) => {
+    //res.json()
+//})
 
-app.get("", req, res => {
-    res.json()
-})
+//app.get("", req, res => {
+    //res.json()
+//})
 
-app.put("", req, res => {
-    res.json()
-})
+//app.put("", req, res => {
+    //res.json()
+//})
 
-app.delete("", (req, res) =>{
-    res.json()
-})
+//app.delete("", (req, res) =>{
+    //res.json()
+//})
 
 
 
