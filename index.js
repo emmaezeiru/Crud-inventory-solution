@@ -20,29 +20,29 @@ const InventorySchema = new Schema({
     item_id: {
         type: String, required: true
     },
-    price: Number,
-    quatity: Number,
+    price: Number, 
+    quatity: Number
 })
 const Inventory = mongoose.model("Inventory", InventorySchema);
 
 app.use(cors())
 app.use("/public", express.static(__dirname + "/public"));
 app.use(express.urlencoded({extended: true}))
+app.use(express.json());
+
 app.get("/", (req, res) => {
     res.sendFile(__dirname + "/views/index.html")
 });
 
 app.post("/api/item", async(req, res)=>{
     const itemObj = new Item({
-        items: req.body.item
+        items: req.body.items
     })
-    const item = await itemObj.save()
-    res.json(item)
+    const items = await itemObj.save()
+    res.json(items)
 })
 
-//app.post("api/item/:inventory", async(req, res) => {
-    //res.json()
-//})
+
 
 //app.get("", req, res => {
     //res.json()
