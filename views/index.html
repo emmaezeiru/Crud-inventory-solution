@@ -14,8 +14,22 @@
         <input id="pri", type="text", name="price", placeholder="Price"/>
         <input id="qua", type="text", name="quantity", placeholder="Quantity"/>
         <br>
-        <input type="submit", value="submit">
+        <button type="submit", value="submit">Add item</button>
         </br>
     </form>
+    <form action="/api/item/:id" method="get">
+        <input id="iname", type="text", name="items", placeholder="Item name"/>
+        <input id="pri", type="text", name="price", placeholder="Price"/>
+        <input id="qua", type="text", name="quantity", placeholder="Quantity"/>
+        <br>
+        <button> Update item</button>
+        </br>
+    </form>
+    
+    <form action="/api/item/:id" method="delete">
+        <input type="number" id="deleteProductId" placeholder="Product ID" required />
+        <button> Remove item</button>
+    </form>
+
 </body>
 </html>

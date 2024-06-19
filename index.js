@@ -35,20 +35,20 @@ app.post("/api/item", async(req, res)=>{
     })
     const items = await itemObj.save()
     res.json(items)
-})
+});
 
-//app.get("/api/item", async (req, res) => {
-    //const 
-    //res.json()
-//})
 
-//app.put("", req, res => {
-    //res.json()
-//})
+app.patch("/api/item/:id", async (req, res) => {
+    const itemUpdate = await res.itemObj.save();
+    res.json(itemUpdate);
+});
 
-//app.delete("", (req, res) =>{
-    //res.json()
-//})
+
+app.delete("/api/item/:id", async (req, res) =>{
+    await res.itemObj.remove();
+    res.json({message: "deleted item"});
+});
+
 
 
 
